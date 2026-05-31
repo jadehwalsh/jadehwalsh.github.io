@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍒 Jade Hainsworth-Walsh 🍒</title>
+  <meta name="description" content="Jade Hainsworth-Walsh – writer, artist, ecogothic researcher based in London.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-about">
+
+  <nav id="site-nav">
+    <div id="nav-tabs">
+      <button id="btn-about" class="nav-tab active" onclick="showPage('about')">about</button>
+      <button id="btn-writing" class="nav-tab" onclick="showPage('writing')">writing</button>
+    </div>
+  </nav>
+
+  <div id="textured-background"></div>
+  <div id="page-background"></div>
+  <section id="page-about" class="page-section">
+    <h1 class="page-heading">Jade Hainsworth-Walsh</h1>
+    <div class="left-col">
+      <p class="body-text">Jade is a Northern writer and artist based in London.</p>
+      <p class="body-text">She has a PhD in English and Creative Writing from Royal Holloway, University of London, where she has lectured in literature and writing. Her interdisciplinary research explores the crossroads of art, literature, image response theory, and the gothic through ekphrasis.</p>
+      <p class="body-text">She is the author of several gothic poems and is currently working on her debut novel.</p>
+      <p class="body-text">Contact: jhwalsh96[at]gmail.com</p>
+    </div>
+    <div class="right-col">
+      <div class="collage-wrap" id="collage-about">
+        <img class="main-photo" src="images/about_profile.JPG" alt="Jade Hainsworth-Walsh">
+        <img class="overlay" id="ov-crystal" src="images/crystal.png" alt="">
+        <img class="overlay" id="ov-pen"    src="images/pen.png" alt="">
+        <img class="overlay" id="ov-mayan"  src="images/mayan.JPG" alt="">
+        <a class="insta-link" href="https://www.instagram.com/jadehwalsh" target="_blank" rel="noopener noreferrer">
+          <img src="images/instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-writing" class="page-section hidden">
+    <h1 class="page-heading">Jade Hainsworth-Walsh</h1>
+    <div class="left-col">
+      <ul class="publications">
+        <li>'the white city' – Decomposition, The New School of the Anthropocene (2026)</li>
+        <li>'occassions when my heart was touched' – Osmosis Press, in partnership with Surrey Hills Arts (2024)</li>
+      </ul>
+      <p class="body-text">She is currently working on her debut novel, which was submitted as part of her practice-based thesis.</p>
+      <p class="body-text">When she's not writing, she's painting or inflicting photography on nearby environments, and cultivating her research in ecogothic.</p>
+    </div>
+    <div class="right-col">
+      <div class="collage-wrap" id="collage-writing">
+        <img class="main-photo" src="images/writing_profile.JPG" alt="Gothic archway">
+        <img class="overlay" id="ov-camera" src="images/camera.png" alt="">
+        <img class="overlay" id="ov-raven"  src="images/raven_note.png" alt="">
+      </div>
+    </div>
+  </section>
+  <script>
+    function showPage(name) {
+      document.querySelectorAll('.page-section').forEach(function(s) {
+        s.classList.add('hidden');
+      });
+      document.querySelectorAll('.nav-tab').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      document.getElementById('page-' + name).classList.remove('hidden');
+      document.getElementById('btn-' + name).classList.add('active');
+      document.body.className = 'page-' + name;
+      window.location.hash = name;
+    }
+
+    var hash = window.location.hash.replace('#', '');
+    showPage(hash === 'writing' ? 'writing' : 'about');
+  </script>
+
+</body>
+</html>
